@@ -50,6 +50,10 @@ System.out.println("e byte[]:" + lIIlIIIlIIlIlllI._$1(arrayOfByte3));
 System.out.println("e string:" + new String(arrayOfByte3));
 ```
 
+### Security Hash
+
+In the case of security authorization, using MD5 in the password encryption and verification process is not safe enough. Even though the SHA algorithm also has the potential to attack. That's why we use salt, you could call it 'sugar', as you like. So, we try to implement the abstract algorithm transformed the original before executing digest algorithm to avoid the conventional "rainbow table" attack.
+
 ## Why is class named like '1III1II'
 
 We work for university and goverment in the past, so we named them like this for some special reasons and we were used it.
