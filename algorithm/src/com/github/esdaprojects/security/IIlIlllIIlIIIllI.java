@@ -110,19 +110,19 @@ public class IIlIlllIIlIIIllI
         {
           localObject2[2] = localObject1[2];
           localObject3 = localObject2[2].substring(0, 6);
-          if (Integer.parseInt((String)localObject3) == 710000) {
+          if (Integer.parseInt((String)localObject3) == 0xAD570) {
             localObject3 = Integer.parseInt("0xA1220", 16) + "";
           }
-          if (Integer.parseInt((String)localObject3) == 710001) {
+          if (Integer.parseInt((String)localObject3) == 0xAD571) {
             localObject3 = Integer.parseInt("0xA1221", 16) + "";
           }
-          if (Integer.parseInt((String)localObject3) == 810000) {
+          if (Integer.parseInt((String)localObject3) == 0xC5C10) {
             localObject3 = Integer.parseInt("0xA3930", 16) + "";
           }
-          if (Integer.parseInt((String)localObject3) == 820000) {
+          if (Integer.parseInt((String)localObject3) == 0xC8320) {
             localObject3 = Integer.parseInt("0xA6040", 16) + "";
           }
-          localObject3 = Integer.parseInt((String)localObject3) - 110000 + "";
+          localObject3 = Integer.parseInt((String)localObject3) - 0x1ADB0 + "";
           str2 = localObject2[2].substring(6, 10);
           String str3 = localObject2[2].substring(10, 12);
           localObject6 = localObject2[2].substring(12, localObject2[2].length() - 1);
