@@ -103,7 +103,7 @@ public class IIIlIIllllIlIlIl
     throws Exception
   {
     byte[] arrayOfByte1 = _$1();
-    System.out.println("key " + _$1(arrayOfByte1));
+    System.out.println("key：" + _$1(arrayOfByte1));
     Key localKey = _$2(arrayOfByte1);
     String str = "DES";
     System.out.println("o string:" + str);

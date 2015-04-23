@@ -1,17 +1,19 @@
 package com.github.esdaprojects.security;
 
 import com.github.esdaprojects.math.IlIllllIllllIlll;
-import com.github.esdaprojects.math.IllIllIllIllllll;
 import com.github.esdaprojects.math.lIlIIIIlIIlllIlI;
 import com.github.esdaprojects.math.llllllIIllIlllII;
 import java.io.UnsupportedEncodingException;
+import java.security.Key;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 
-public class IIlIlllIIlIIIllI
+public class lllIllllIIIIIllI
   implements IlIIlIlIllllIlIl
 {
+  private static final int _$35 = 40;
+  private static final int _$34 = 30;
   private static final int _$33 = 16;
   private static final byte[] _$32 = new byte[16];
   private static final StringBuilder _$31 = new StringBuilder(64);
@@ -46,7 +48,7 @@ public class IIlIlllIIlIIIllI
   private static int[] _$2 = null;
   private static int[] _$1 = null;
   
-  private String _$1(String paramString, int paramInt)
+  private String _$2(String paramString, int paramInt)
   {
     if (paramString.length() < paramInt)
     {
@@ -58,218 +60,190 @@ public class IIlIlllIIlIIIllI
     return paramString;
   }
   
+  private String _$1(String paramString, int paramInt)
+  {
+    if (paramString.length() < paramInt)
+    {
+      int i = paramInt - paramString.length();
+      for (int j = 0; j < i; j++) {
+        paramString = paramString + "0";
+      }
+    }
+    return paramString;
+  }
+  
+  private String _$6(String paramString)
+  {
+    char[] arrayOfChar = paramString.toCharArray();
+    String str = "";
+    for (int i = 0; i < arrayOfChar.length; i++)
+    {
+      int j = arrayOfChar[i];
+      str = str + Integer.toHexString(j);
+    }
+    return str;
+  }
+  
+  private String _$5(String paramString)
+  {
+    char[] arrayOfChar1 = paramString.toCharArray();
+    char[] arrayOfChar2 = new char[arrayOfChar1.length / 4];
+    for (int i = 0; i < arrayOfChar2.length; i++)
+    {
+      String str = "" + arrayOfChar1[(i * 4 + 0)] + arrayOfChar1[(i * 4 + 1)] + arrayOfChar1[(i * 4 + 2)] + arrayOfChar1[(i * 4 + 3)];
+      arrayOfChar2[i] = ((char)Integer.parseInt(str, 16));
+    }
+    return new String(arrayOfChar2);
+  }
+  
   public String _$$2(String paramString)
   {
-    String str1 = paramString;
-    Object localObject4;
-    byte[] arrayOfByte2;
-    Object localObject5;
-    Object localObject8;
-    if (str1.matches("鍐颔瓧萹햘餐测"))
+    Object localObject1 = paramString;
+    int i = 1;
+    int j = 0;
+    String str1 = "鍐颔瓧萹햘餐测";
+    String str2 = "䮮頷鞀⬈䴕隙긘䖣ꉏꜿპ讧頟⟡켫倸娧ﱁሜ匮ﴡ";
+    String str3 = _$6(str1);
+    byte[] arrayOfByte1 = _$1(str3);
+    Key localKey = lIIlIIIlIIlIlllI._$2(arrayOfByte1);
+    try
     {
+      str2 = new String(lIIlIIIlIIlIlllI._$1(_$1(_$6(str2)), localKey));
+    }
+    catch (Exception localException1)
+    {
+      localException1.printStackTrace();
+    }
+    String str9;
+    String str10;
+    if (((String)localObject1).toUpperCase().matches(str2))
+    {
+      Object localObject2 = ((String)localObject1).substring(0, 6);
+      if (Integer.parseInt((String)localObject2) == 710000) {
+        localObject2 = Integer.parseInt("0xA1220", 16) + "";
+      }
+      if (Integer.parseInt((String)localObject2) == 710001) {
+        localObject2 = Integer.parseInt("0xA1221", 16) + "";
+      }
+      if (Integer.parseInt((String)localObject2) == 810000) {
+        localObject2 = Integer.parseInt("0xA3930", 16) + "";
+      }
+      if (Integer.parseInt((String)localObject2) == 820000) {
+        localObject2 = Integer.parseInt("0xA6040", 16) + "";
+      }
+      localObject2 = Integer.parseInt((String)localObject2) - 110000 + "";
+      String str4 = ((String)localObject1).substring(6, 10);
+      String str6 = ((String)localObject1).substring(10, 12);
+      String str7 = ((String)localObject1).substring(12, ((String)localObject1).length() - 1);
       try
       {
-        IllIllIllIllllll localIllIllIllIllllll = new IllIllIllIllllll(16);
-        String[] localObject1 = str1.split("[:\\-,_|]");
-        String[] localObject2 = new String[4];
-        String localObject3;
-        if ((localObject1[0] != null) && (localObject1[0].matches("^\\d{11}$")))
-        {
-          localObject2[0] = _$4(localObject1[0].substring(1));
-          localObject2[0] = ("a" + _$1(lIlIIIIlIIlllIlI._$1(localObject2[0], 10, 16), 9));
-        }
-        else if ((localObject1[0] != null) && (localObject1[0].matches("^\\w$")))
-        {
-          localObject3 = lIlIIIIlIIlllIlI._$1(localObject1[0], 62, 16);
-          localObject2[0] = (((String)localObject3).length() + "a" + (String)localObject3);
-        }
-        if ((localObject1.length > 1) && (localObject1[1] != null) && (localObject1[1].matches("讧")))
-        {
-          localObject3 = lIlIIIIlIIlllIlI._$1(localObject1[1], 62, 16);
-          localObject2[1] = (((String)localObject3).length() + "a" + (String)localObject3);
-        }
-        else if ((localObject1.length > 1) && (localObject1[1] != null) && (localObject1[1].matches("讧頟⟡켫匮ﴡ")))
-        {
-          localObject3 = lIlIIIIlIIlllIlI._$1(localObject1[1], 10, 16);
-          localObject2[1] = (((String)localObject3).length() + "b" + (String)localObject3);
-        }
-        String str2;
-        Object localObject6;
-        Object localObject7;
-        String str6;
-        if ((localObject1.length > 2) && (localObject1[2] != null) && (localObject1[2].matches("頷鞀⬈䮮䴕긘隙䖣ꉏꜿპ倸娧ﱁሜ")))
-        {
-          localObject3 = lIlIIIIlIIlllIlI._$1(localObject1[2], 10, 16);
-          localObject2[2] = (((String)localObject3).length() + "a" + (String)localObject3);
-        }
-        else if ((localObject1.length > 2) && (localObject1[2] != null) && (localObject1[2].matches("䮮頷鞀⬈䴕隙긘䖣ꉏꜿპ讧頟⟡켫倸娧ﱁሜ匮ﴡ")))
-        {
-          localObject2[2] = localObject1[2];
-          localObject3 = localObject2[2].substring(0, 6);
-          if (Integer.parseInt((String)localObject3) == 710000) {
-            localObject3 = Integer.parseInt("0xA1220", 16) + "";
-          }
-          if (Integer.parseInt((String)localObject3) == 710001) {
-            localObject3 = Integer.parseInt("0xA1221", 16) + "";
-          }
-          if (Integer.parseInt((String)localObject3) == 810000) {
-            localObject3 = Integer.parseInt("0xA3930", 16) + "";
-          }
-          if (Integer.parseInt((String)localObject3) == 820000) {
-            localObject3 = Integer.parseInt("0xA6040", 16) + "";
-          }
-          localObject3 = Integer.parseInt((String)localObject3) - 110000 + "";
-          str2 = localObject2[2].substring(6, 10);
-          String str3 = localObject2[2].substring(10, 12);
-          localObject6 = localObject2[2].substring(12, localObject2[2].length() - 1);
-          localObject7 = _$1(lIlIIIIlIIlllIlI._$1(str3, 10, 16), 1);
-          String localObject9 = _$1(lIlIIIIlIIlllIlI._$1((String)localObject3, 10, 16), 5);
-          String str5 = _$1(lIlIIIIlIIlllIlI._$1(Integer.parseInt(str2) - 1889 + "", 10, 16), 2);
-          str6 = _$1(lIlIIIIlIIlllIlI._$1((String)localObject6, 10, 16), 4);
-          String str7 = (String)localObject7 + (String)localObject9 + str5 + str6;
-          localObject2[2] = ("b" + str7);
-        }
-        else if ((localObject1.length > 2) && (localObject1[2] != null) && (localObject1[2].matches("^\\d+$")))
-        {
-          localObject3 = lIlIIIIlIIlllIlI._$1(localObject1[2], 10, 16);
-          localObject2[2] = (((String)localObject3).length() + "c" + (String)localObject3);
-        }
-        else if ((localObject1.length > 2) && (localObject1[2] != null) && (localObject1[2].matches("^\\w+$")))
-        {
-          localObject3 = lIlIIIIlIIlllIlI._$1(localObject1[2], 62, 16);
-          localObject2[2] = (((String)localObject3).length() + "d" + (String)localObject3);
-        }
-        if ((localObject1.length > 3) && (localObject1[3] != null) && (localObject1[3].matches("^\\w+$")))
-        {
-          localObject3 = lIlIIIIlIIlllIlI._$1(localObject1[3], 62, 16);
-          localObject2[3] = (((String)localObject3).length() + "a" + (String)localObject3);
-        }
-        else if ((localObject1.length > 3) && (localObject1[3] != null) && (localObject1[3].matches("讧頟⟡켫匮ﴡ")))
-        {
-          char[] localChar = localObject1[3].toCharArray();
-          str2 = localChar.length + "b";
-          for (int k = 0; k < localChar.length; k++) {
-            str2 = str2 + _$1(Integer.toHexString(localChar[k]), 4);
-          }
-          localObject2[3] = str2;
-        }
-        for (int i = 0; i < localObject2.length; i++) {
-          if (localObject2[i] == null) {
-            localObject2[i] = "";
-          }
-        }
-        str1 = lllIIIIIIIIlIIll._$1((Object[])localObject2, "");
-        if (str1.length() > 64)
-        {
-          localObject4 = str1;
-          int j;
-          for (j = str1.length(); j > 64; j -= 4) {}
-          str1 = str1.substring(0, j);
-          String str4 = "";
-          try
-          {
-            localObject6 = MessageDigest.getInstance("SHA");
-            ((MessageDigest)localObject6).update(((String)localObject4).getBytes());
-            byte[] localByte = ((MessageDigest)localObject6).digest();
-            StringBuffer localObject9 = new StringBuffer();
-            for (int i3 = 0; i3 < localByte.length; i3++)
-            {
-              str6 = Integer.toHexString(localByte[i3] & 0xFF);
-              if (str6.length() < 2) {
-                ((StringBuffer)localObject9).append(0);
-              }
-              ((StringBuffer)localObject9).append(str6);
-            }
-            str4 = str4 + ((StringBuffer)localObject9).toString();
-          }
-          catch (NoSuchAlgorithmException localNoSuchAlgorithmException3)
-          {
-            return null;
-          }
-          int n = 64 - str1.length();
-          str1 = str1 + str4.substring(0, n);
-        }
-        str1 = _$1(str1, 64);
-        str1 = _$4(str1);
-        Integer[] localInteger4 = lIlIIIIlIIlllIlI._$1(str1, localIllIllIllIllllll);
-        byte[] arrayOfByte22 = new byte[32];
-        for (int m = 0; m < arrayOfByte22.length; m++) {
-        	arrayOfByte22[m] = ((byte)(localInteger4[(2 * m)].intValue() << 4 | localInteger4[(2 * m + 1)].intValue()));
-        }
-        byte[] localObject55 = _$2(arrayOfByte22);
-        Integer[] arrayOfInteger = new Integer[localObject55.length - 1];
-        for (int i2 = 0; i2 < arrayOfInteger.length; i2++) {
-          arrayOfInteger[i2] = Integer.valueOf(localObject55[i2] + 128);
-        }
-        localObject8 = Arrays.copyOf((byte[])localObject55, localObject55.length - 1);
-        Object localObject9 = _$3((byte[])localObject8);
-        return _$4((String)localObject9);
+        String str8 = _$2(lIlIIIIlIIlllIlI._$1(str6, 10, 16), 1);
+        str9 = _$2(lIlIIIIlIIlllIlI._$1((String)localObject2, 10, 16), 5);
+        Object localObject4 = _$2(lIlIIIIlIIlllIlI._$1(Integer.parseInt(str4) - 1889 + "", 10, 16), 2);
+        str10 = _$2(lIlIIIIlIIlllIlI._$1(str7, 10, 16), 4);
+        String str11 = str8 + str9 + (String)localObject4 + str10;
+        String str12 = ((String)localObject1).substring(((String)localObject1).length() - 1, ((String)localObject1).length());
+        localObject1 = str11 + (str12.matches("[Xx]") ? "a" : str12);
+        localObject1 = _$2((String)localObject1, 30);
       }
       catch (llllllIIllIlllII localllllllIIllIlllII)
       {
-        localllllllIIllIlllII.printStackTrace();
+        i = 0;
       }
       catch (IlIllllIllllIlll localIlIllllIllllIlll)
       {
-        localIlIllllIllllIlll.printStackTrace();
+        i = 0;
       }
-      catch (NumberFormatException localNumberFormatException)
+      catch (UnsupportedEncodingException localUnsupportedEncodingException1)
       {
-        localNumberFormatException.printStackTrace();
+        i = 0;
       }
-      catch (UnsupportedEncodingException localUnsupportedEncodingException)
+      catch (Exception localException2)
       {
-        localUnsupportedEncodingException.printStackTrace();
+        i = 0;
       }
-      return null;
     }
-    byte[] arrayOfByte1 = _$2(str1.getBytes());
-    Object localObject1 = Arrays.copyOfRange(arrayOfByte1, 0, arrayOfByte1.length - 1);
-    Arrays.sort((byte[])localObject1);
-    localObject1 = _$2((byte[])localObject1);
-    Object localObject2 = "";
-    int i1;
-    try
+    else
     {
-      localObject4 = MessageDigest.getInstance("SHA");
-      ((MessageDigest)localObject4).update(arrayOfByte1);
-      arrayOfByte2 = ((MessageDigest)localObject4).digest();
-      localObject5 = new StringBuffer();
-      for (i1 = 0; i1 < arrayOfByte2.length; i1++)
+      i = 0;
+    }
+    if (i == 0)
+    {
+      localObject1 = paramString;
+      char[] localObject2 = ((String)localObject1).toCharArray();
+      int k = 15;
+      int m = 0;
+      int n = localObject2.length;
+      try
       {
-        localObject8 = Integer.toHexString(arrayOfByte2[i1] & 0xFF);
-        if (((String)localObject8).length() < 2) {
-          ((StringBuffer)localObject5).append(0);
+        for (int i1 = 0; i1 < localObject2.length; i1++)
+        {
+          str9 = localObject2[i1] + "";
+          byte[] localObject4 = str9.getBytes("UTF-8");
+          if (m + localObject4.length > k)
+          {
+            n = i1;
+            break;
+          }
+          m += localObject4.length;
         }
-        ((StringBuffer)localObject5).append((String)localObject8);
+        localObject1 = ((String)localObject1).substring(0, n);
+        byte[] arrayOfByte4 = ((String)localObject1).getBytes("UTF-8");
+        localObject1 = _$3(arrayOfByte4);
+        localObject1 = _$1((String)localObject1, 30);
       }
-      localObject2 = (String)localObject2 + ((StringBuffer)localObject5).toString();
+      catch (UnsupportedEncodingException localUnsupportedEncodingException2)
+      {
+        j = 1;
+      }
     }
-    catch (NoSuchAlgorithmException localNoSuchAlgorithmException1)
-    {
-      return null;
-    }
+    Object localObject2 = paramString;
+    String str5 = "";
     try
     {
       MessageDigest localMessageDigest = MessageDigest.getInstance("SHA");
-      localMessageDigest.update((byte[])localObject1);
-      arrayOfByte2 = localMessageDigest.digest();
-      localObject5 = new StringBuffer();
-      for (i1 = 0; i1 < arrayOfByte2.length; i1++)
+      localMessageDigest.update(((String)localObject2).getBytes());
+      byte[] arrayOfByte3 = localMessageDigest.digest();
+      StringBuffer localObject3 = new StringBuffer();
+      for (int i2 = 0; i2 < arrayOfByte3.length; i2++)
       {
-        localObject8 = Integer.toHexString(arrayOfByte2[i1] & 0xFF);
-        if (((String)localObject8).length() < 2) {
-          ((StringBuffer)localObject5).append(0);
+        String localObject4 = Integer.toHexString(arrayOfByte3[i2] & 0xFF);
+        if (((String)localObject4).length() < 2) {
+          ((StringBuffer)localObject3).append(0);
         }
-        ((StringBuffer)localObject5).append((String)localObject8);
+        ((StringBuffer)localObject3).append((String)localObject4);
       }
-      localObject2 = (String)localObject2 + ((StringBuffer)localObject5).toString();
+      str5 = str5 + ((StringBuffer)localObject3).toString();
     }
-    catch (NoSuchAlgorithmException localNoSuchAlgorithmException2)
+    catch (NoSuchAlgorithmException localNoSuchAlgorithmException)
     {
       return null;
     }
-    return ((String)localObject2).substring(1, 65);
+    localObject1 = _$4(new StringBuilder().append(((String)localObject1).substring(0, 15)).append(str5.substring(0, 1)).toString()) + _$4(new StringBuilder().append(str5.substring(1, 2)).append(((String)localObject1).substring(15, 30)).toString());
+    byte[] arrayOfByte2 = _$1((String)localObject1);
+    byte[] arrayOfByte3 = _$2(arrayOfByte2);
+    Integer[] localObject3 = new Integer[arrayOfByte3.length - 1];
+    for (int i2 = 0; i2 < localObject3.length; i2++) {
+      localObject3[i2] = Integer.valueOf(arrayOfByte3[i2] + 128);
+    }
+    byte[] arrayOfByte5 = Arrays.copyOf(arrayOfByte3, arrayOfByte3.length - 1);
+    Object localObject4 = _$3(arrayOfByte5);
+    localObject1 = localObject4;
+    int i3;
+    if (i != 0)
+    {
+      str10 = str5.substring(2, 3);
+      i3 = Integer.parseInt(str10, 16);
+      localObject1 = (String)localObject1 + i3 % 8;
+    }
+    else
+    {
+      str10 = str5.substring(2, 3);
+      i3 = Integer.parseInt(str10, 16);
+      localObject1 = (String)localObject1 + Integer.toHexString(i3 % 8 + 8);
+    }
+    localObject1 = (String)localObject1 + str5.substring(4, 11);
+    return _$4((String)localObject1);
   }
   
   private String _$4(String paramString)
@@ -326,10 +300,10 @@ public class IIlIlllIIlIIIllI
   
   private static String _$3(String paramString)
   {
-    return _$1(paramString, null);
+    return _$2(paramString, null);
   }
   
-  private static String _$1(String paramString, Character paramCharacter)
+  private static String _$2(String paramString, Character paramCharacter)
   {
     if ((paramString == null) || (paramString.trim().length() == 0)) {
       return "";
@@ -383,6 +357,35 @@ public class IIlIlllIIlIIIllI
     return _$25.toString();
   }
   
+  private static byte[] _$1(String paramString, Character paramCharacter)
+    throws UnsupportedEncodingException
+  {
+    _$24.delete(0, _$24.length());
+    for (int i = 0; i < paramString.length(); i++)
+    {
+      char c = paramString.charAt(i);
+      if (c == 'D')
+      {
+        int j = paramString.charAt(i + 1);
+        if (j == 68) {
+          _$24.append('D');
+        } else if (j == 70) {
+          _$24.append('\n');
+        } else if (j == 89) {
+          _$24.append('\r');
+        } else if ((paramCharacter != null) && (j == 77)) {
+          _$24.append(paramCharacter);
+        }
+        i++;
+      }
+      else
+      {
+        _$24.append(c);
+      }
+    }
+    return _$24.toString().getBytes("latin1");
+  }
+  
   private static String _$3(byte[] paramArrayOfByte)
   {
     _$31.delete(0, _$31.length());
@@ -417,7 +420,7 @@ public class IIlIlllIIlIIIllI
     {
       int k = 16 * j;
       byte[] arrayOfByte2 = Arrays.copyOfRange(paramArrayOfByte, k, k + 16);
-      _$1(arrayOfByte2, _$32);
+      _$2(arrayOfByte2, _$32);
       System.arraycopy(_$32, 0, arrayOfByte1, k, 16);
     }
     arrayOfByte1[(arrayOfByte1.length - 1)] = ((byte)(paramArrayOfByte.length % 16));
@@ -508,7 +511,7 @@ public class IIlIlllIIlIIIllI
     _$1(paramArrayOfByte, paramInt, 3);
   }
   
-  private static void _$1(byte[] paramArrayOfByte1, byte[] paramArrayOfByte2)
+  private static void _$2(byte[] paramArrayOfByte1, byte[] paramArrayOfByte2)
   {
     int i = 0;
     int k = (paramArrayOfByte1[0] << 24 | (paramArrayOfByte1[1] & 0xFF) << 16 | (paramArrayOfByte1[2] & 0xFF) << 8 | paramArrayOfByte1[3] & 0xFF) ^ _$2[0];
@@ -550,23 +553,46 @@ public class IIlIlllIIlIIIllI
     paramArrayOfByte2[15] = ((byte)(_$16[(n & 0xFF)] ^ j));
   }
   
-  protected final void finalize()
+  private static void _$1(byte[] paramArrayOfByte1, byte[] paramArrayOfByte2)
   {
-    int i;
-    if (_$2 != null)
+    int i = 0;
+    int k = (paramArrayOfByte1[0] << 24 | (paramArrayOfByte1[1] & 0xFF) << 16 | (paramArrayOfByte1[2] & 0xFF) << 8 | paramArrayOfByte1[3] & 0xFF) ^ _$1[0];
+    int m = (paramArrayOfByte1[4] << 24 | (paramArrayOfByte1[5] & 0xFF) << 16 | (paramArrayOfByte1[6] & 0xFF) << 8 | paramArrayOfByte1[7] & 0xFF) ^ _$1[1];
+    int n = (paramArrayOfByte1[8] << 24 | (paramArrayOfByte1[9] & 0xFF) << 16 | (paramArrayOfByte1[10] & 0xFF) << 8 | paramArrayOfByte1[11] & 0xFF) ^ _$1[2];
+    int i1 = (paramArrayOfByte1[12] << 24 | (paramArrayOfByte1[13] & 0xFF) << 16 | (paramArrayOfByte1[14] & 0xFF) << 8 | paramArrayOfByte1[15] & 0xFF) ^ _$1[3];
+    for (int i2 = 1; i2 < _$5; i2++)
     {
-      for (i = 0; i < _$2.length; i++) {
-        _$2[i] = 0;
-      }
-      _$2 = null;
+      i += 4;
+      int i3 = _$10[(k >>> 24)] ^ _$9[(i1 >>> 16 & 0xFF)] ^ _$8[(n >>> 8 & 0xFF)] ^ _$7[(m & 0xFF)] ^ _$1[i];
+      int i4 = _$10[(m >>> 24)] ^ _$9[(k >>> 16 & 0xFF)] ^ _$8[(i1 >>> 8 & 0xFF)] ^ _$7[(n & 0xFF)] ^ _$1[(i + 1)];
+      int i5 = _$10[(n >>> 24)] ^ _$9[(m >>> 16 & 0xFF)] ^ _$8[(k >>> 8 & 0xFF)] ^ _$7[(i1 & 0xFF)] ^ _$1[(i + 2)];
+      int i6 = _$10[(i1 >>> 24)] ^ _$9[(n >>> 16 & 0xFF)] ^ _$8[(m >>> 8 & 0xFF)] ^ _$7[(k & 0xFF)] ^ _$1[(i + 3)];
+      k = i3;
+      m = i4;
+      n = i5;
+      i1 = i6;
     }
-    if (_$1 != null)
-    {
-      for (i = 0; i < _$1.length; i++) {
-        _$1[i] = 0;
-      }
-      _$1 = null;
-    }
+    i += 4;
+    int j = _$1[i];
+    paramArrayOfByte2[0] = ((byte)(_$11[(k >>> 24)] ^ j >>> 24));
+    paramArrayOfByte2[1] = ((byte)(_$11[(i1 >>> 16 & 0xFF)] ^ j >>> 16));
+    paramArrayOfByte2[2] = ((byte)(_$11[(n >>> 8 & 0xFF)] ^ j >>> 8));
+    paramArrayOfByte2[3] = ((byte)(_$11[(m & 0xFF)] ^ j));
+    j = _$1[(i + 1)];
+    paramArrayOfByte2[4] = ((byte)(_$11[(m >>> 24)] ^ j >>> 24));
+    paramArrayOfByte2[5] = ((byte)(_$11[(k >>> 16 & 0xFF)] ^ j >>> 16));
+    paramArrayOfByte2[6] = ((byte)(_$11[(i1 >>> 8 & 0xFF)] ^ j >>> 8));
+    paramArrayOfByte2[7] = ((byte)(_$11[(n & 0xFF)] ^ j));
+    j = _$1[(i + 2)];
+    paramArrayOfByte2[8] = ((byte)(_$11[(n >>> 24)] ^ j >>> 24));
+    paramArrayOfByte2[9] = ((byte)(_$11[(m >>> 16 & 0xFF)] ^ j >>> 16));
+    paramArrayOfByte2[10] = ((byte)(_$11[(k >>> 8 & 0xFF)] ^ j >>> 8));
+    paramArrayOfByte2[11] = ((byte)(_$11[(i1 & 0xFF)] ^ j));
+    j = _$1[(i + 3)];
+    paramArrayOfByte2[12] = ((byte)(_$11[(i1 >>> 24)] ^ j >>> 24));
+    paramArrayOfByte2[13] = ((byte)(_$11[(n >>> 16 & 0xFF)] ^ j >>> 16));
+    paramArrayOfByte2[14] = ((byte)(_$11[(m >>> 8 & 0xFF)] ^ j >>> 8));
+    paramArrayOfByte2[15] = ((byte)(_$11[(k & 0xFF)] ^ j));
   }
   
   static
@@ -619,7 +645,15 @@ public class IIlIlllIIlIIIllI
       }
       _$6[i10] = (i9 << 24);
     }
-    byte[] arrayOfByte1 = "ᾤ껝꼬퉖躛Ჰइ者⤮".getBytes();
+    byte[] arrayOfByte1 = null;
+    try
+    {
+      arrayOfByte1 = "ᾤ껝꼬퉖躛Ჰइ者⤮".getBytes("UTF-8");
+    }
+    catch (UnsupportedEncodingException localUnsupportedEncodingException)
+    {
+      localUnsupportedEncodingException.printStackTrace();
+    }
     byte[] arrayOfByte2 = new byte[16];
     int k = 1;
     for (int m = 0; m < 16; m++)

@@ -30,7 +30,7 @@ public class lIIlIIIlIIlIlllI
     return localSecretKey.getEncoded();
   }
   
-  private static Key _$2(byte[] paramArrayOfByte)
+  public static Key _$2(byte[] paramArrayOfByte)
   {
     return new SecretKeySpec(paramArrayOfByte, "AES");
   }

@@ -56,18 +56,7 @@ public class lIlIIIIlIIlllIlI
     return _$1(paramString, paramInt1, localIllIllIllIllllll);
   }
   
-  public static String[] _$1(Integer[] paramArrayOfInteger, IllIllIllIllllll paramIllIllIllIllllll1, IllIllIllIllllll paramIllIllIllIllllll2)
-    throws llllllIIllIlllII, IlIllllIllllIlll
-  {
-    Integer[] arrayOfInteger = _$1(paramArrayOfInteger, paramIllIllIllIllllll1._$1(), paramIllIllIllIllllll2._$1());
-    String[] arrayOfString = new String[arrayOfInteger.length];
-    for (int i = 0; i < arrayOfInteger.length; i++) {
-      arrayOfString[i] = paramIllIllIllIllllll2._$1(arrayOfInteger[i].intValue());
-    }
-    return arrayOfString;
-  }
-
-public static String _$1(String[] paramArrayOfString, IllIllIllIllllll paramIllIllIllIllllll1, IllIllIllIllllll paramIllIllIllIllllll2)
+  public static String _$1(String[] paramArrayOfString, IllIllIllIllllll paramIllIllIllIllllll1, IllIllIllIllllll paramIllIllIllIllllll2)
     throws llllllIIllIlllII, IlIllllIllllIlll
   {
     Integer[] arrayOfInteger1 = _$1(paramArrayOfString, paramIllIllIllIllllll1);
@@ -90,8 +79,19 @@ public static String _$1(String[] paramArrayOfString, IllIllIllIllllll paramIllI
     }
     return localStringBuffer.toString();
   }
-
-public static String _$1(String paramString, int paramInt, IllIllIllIllllll paramIllIllIllIllllll)
+  
+  public static String[] _$1(Integer[] paramArrayOfInteger, IllIllIllIllllll paramIllIllIllIllllll1, IllIllIllIllllll paramIllIllIllIllllll2)
+    throws llllllIIllIlllII, IlIllllIllllIlll
+  {
+    Integer[] arrayOfInteger = _$1(paramArrayOfInteger, paramIllIllIllIllllll1._$1(), paramIllIllIllIllllll2._$1());
+    String[] arrayOfString = new String[arrayOfInteger.length];
+    for (int i = 0; i < arrayOfInteger.length; i++) {
+      arrayOfString[i] = paramIllIllIllIllllll2._$1(arrayOfInteger[i].intValue());
+    }
+    return arrayOfString;
+  }
+  
+  public static String _$1(String paramString, int paramInt, IllIllIllIllllll paramIllIllIllIllllll)
     throws llllllIIllIlllII, IlIllllIllllIlll, UnsupportedEncodingException
   {
     IllIllIllIllllll localIllIllIllIllllll = new IllIllIllIllllll(paramInt);
