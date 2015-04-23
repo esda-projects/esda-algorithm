@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.github.esdaprojects</groupId>
+	<artifactId>esda-algorithm</artifactId>
+	<version>0.4.1</version>
+	<packaging>jar</packaging>
+
+	<name>esda-algorithm</name>
+	<url>https://github.com/esda-projects/esda-algorithm</url>
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<scm>
+		<connection>scm:git:git://github.com/esda-projects/esda-algorithm.git</connection>
+		<url>scm:git:git://github.com/esda-projects/esda-algorithm.git</url>
+		<developerConnection>scm:git:git://github.com/esda-projects/esda-algorithm.git</developerConnection>
+	</scm>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+	</dependencies>
+	<description>digest algorithm implement</description>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<developers>
+		<developer>
+			<id>butorthaliam</id>
+			<name>Butort Haliam</name>
+			<email>butorthaliam@hotmail.com</email>
+		</developer>
+	</developers>
+</project>
